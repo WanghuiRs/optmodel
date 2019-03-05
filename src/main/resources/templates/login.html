@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="fullscreen-bg">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/linearicons/style.css">
+    <link rel="stylesheet" href="vendor/chartist/css/chartist-custom.css">
+    <!-- 文件上传 css -->
+    <link rel="stylesheet" href="vendor/css/fileinput.min.css">
+    <link rel="stylesheet" href="vendor/css/dataTables.bootstrap.min.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="vendor/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="vendor/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+    <style>
+        .auth-box{
+            width: 40%;
+            padding: 0px 150px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <div class="vertical-align-wrap">
+        <div class="vertical-align-middle">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2 content">
+                    <div class="header">
+                        <div class="logo text-center"><h3>圣奥化学</h3></div>
+                        <p class="lead text-center">Login to your account</p>
+                    </div>
+                    <form class="form-auth-small" action="/userLogin" method="post">
+                        <div class="form-group">
+                            <label for="name" class="control-label sr-only">用户名</label>
+                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="UserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="psd" class="control-label sr-only">密码</label>
+                            <input type="password" class="form-control" id="psd" name="psd" value="" placeholder="Password">
+                        </div>
+                        <button id="sumit_bt" type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+                    </form>
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END WRAPPER -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="vendor/chartist/js/chartist.min.js"></script>
+<script src="scripts/klorofil-common.js"></script>
+<script src="js/fileinput.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"> </script>
+<script type="text/javascript" src="js/dataTables.bootstrap.min.js"> </script>
+
+</body>
+
+</html>

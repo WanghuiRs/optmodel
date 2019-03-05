@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/linearicons/style.css">
+    <link rel="stylesheet" href="vendor/chartist/css/chartist-custom.css">
+    <!-- 文件上传 css -->
+    <link rel="stylesheet" href="vendor/css/fileinput.min.css">
+    <link rel="stylesheet" href="vendor/css/dataTables.bootstrap.min.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="vendor/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="vendor/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+    <style>
+        .bg{
+            background:#d9e6ff;
+        }
+        .tdwidth{
+            width: 60px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <h3 style="margin-top:0px;margin-bottom: 0px;"> 圣奥化学</h3>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+            </div>
+            <form class="navbar-form navbar-left" style="display:none">
+                <div class="input-group">
+                    <input type="text" value="" class="form-control" placeholder="Search dashboard...">
+                    <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+                </div>
+            </form>
+            <p class="navbar-text navbar-right" style="font-size: 40px;margin-right: 15px;">生产计划及运输安排优化模型</p>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+
+                    <li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>模型数据导入/导出</span></a></li>
+                    <li>
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-bookmark"></i> <span>工厂基本信息</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="/proCapacity" class=""><i class="lnr lnr-file-empty"></i> <span>产能</span></a></li>
+                                <li><a href="/pacCapacity" class=""><i class="lnr lnr-file-empty"></i> <span>包装能力</span></a></li>
+                                <li><a href="/proType" class=""><i class="lnr lnr-file-empty"></i> <span>产品品种</span></a></li>
+                                <li><a href="/page6PPDCost" class=""><i class="lnr lnr-file-empty"></i> <span>6PPD生产成本-保税</span></a></li>
+                                <li><a href="/page6PPDCost2" class=""><i class="lnr lnr-file-empty"></i> <span>6PPD生产成本-非保税</span></a></li>
+                                <li><a href="/safeStock" class=""><i class="lnr lnr-file-empty"></i> <span>产品安全库存</span></a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-bookmark"></i> <span>物流基本信息</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages2" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="/transCost" class=""><i class="lnr lnr-file-empty"></i> <span>运输配送报价</span></a></li>
+                                <li><a href="/conRout" class=""><i class="lnr lnr-file-empty"></i> <span>固定约束路线</span></a></li>
+                                <li><a href="/location" class=""><i class="lnr lnr-file-empty"></i> <span>中转仓和客户点分布</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li><a href="/preOrder" class=""><i class="lnr lnr-file-empty"></i> <span>订单计划</span></a></li>
+                    <li><a href="/result" class=""><i class="lnr lnr-file-empty"></i> <span>生产运输安排优化结果</span></a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modal_title">文本对比</h4>
+                    </div>
+                    <div class="modal-body" id="modal_content">
+
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+
+                <h3 class="page-title">生产成本标准（非保税）</h3>
+                <div class="col-md-2">
+                    <button id="edit6PPDCost1Data" type="button" class="btn btn-primary btn-block">保存修改数据</button>
+                </div>
+                <table id="6ppdCost1Table" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>工厂编码</th>
+                        <th>工厂名称</th>
+                        <th>产品类型</th>
+                        <th>综合单位成本（元/吨）</th>
+                        <th>日期（年月）</th>
+                        <!-- 可修改 start-->
+                        <th class="bg">MIBK-非保税</th>
+                        <th class="bg">催化剂 GC1801</th>
+                        <th class="bg">催化加（CB-5)</th>
+                        <th class="bg">CB-10</th>
+                        <th class="bg">铂碳催化剂（干剂）</th>
+                        <th class="bg">氢气-非保税</th>
+                        <th class="bg">油炉</th>
+                        <th class="bg">蒸汽</th>
+                        <th class="bg">自来水</th>
+                        <th class="bg">4-ADPA（散水）-外购</th>
+                        <th class="bg">4-ADPA（散水）</th>
+                        <!-- 可修改 结束 -->
+                        <th>车间电</th>
+                        <th>分摊电</th>
+                        <th>本部门-人工</th>
+                        <th>本部门-其他</th>
+                        <th>本部门-折旧</th>
+                        <th>本部门-包装费</th>
+                        <th>本部门-维修</th>
+                        <th>间接部门-人工</th>
+                        <th>间接部门-其他</th>
+                        <th>间接部门-折旧</th>
+                        <th>间接部门-包装费</th>
+                        <th>间接部门-维修</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+                <!--
+                <div class="row" style="height: 100px;">
+                    <div class="col-md-3"><h3 class="page-title">生产成本标准（非保税）</h3></div>
+                    <div class="col-md-5"><input id="f_upload2" type="file" class="file-loading" name="file" /></div>
+                </div>
+                <table id="6ppdCost2" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>工厂编码</th>
+                        <th>工厂名称</th>
+                        <th>产品类型</th>
+                        <th>综合单位成本（元/吨）</th>
+                        <th>日期（年月）</th>
+
+                         可修改
+                        <th>MIBK-非保税</th>
+                        <th>铂碳催化剂（干剂）</th>
+                        <th>氢气-保税</th>
+                        <th>氢气-非保税</th>
+                        <th>油炉</th>
+                        <th>蒸汽</th>
+                        <th>自来水</th>
+                        <th>4-ADPA（散水）</th>
+                         可修改 结束
+
+                        <th>车间电</th>
+                        <th>分摊电</th>
+                        <th>本部门-人工</th>
+                        <th>本部门-其他</th>
+                        <th>本部门-折旧</th>
+                        <th>本部门-包装费</th>
+                        <th>本部门-维修</th>
+                        <th>间接部门-人工</th>
+                        <th>间接部门-其他</th>
+                        <th>间接部门-折旧</th>
+                        <th>间接部门-包装费</th>
+                        <th>间接部门-维修</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+                -->
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+</div>
+<!-- END WRAPPER -->
+<!-- Javascript -->
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="vendor/chartist/js/chartist.min.js"></script>
+<script src="scripts/klorofil-common.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"> </script>
+<script type="text/javascript" src="js/dataTables.bootstrap.min.js"> </script>
+
+<!-- for datatable editor-->
+
+<!-- js for table -->
+<script>
+    $(document).ready( function () {
+        $.extend(true, $.fn.dataTable.defaults, {
+            "dom": "l<'#toolbar'>frtip"
+        });
+
+        $('#edit6PPDCost1Data').click(function(){
+            var editData = [];
+            var tableObj = document.getElementById("6ppdCost1Table");
+            for (var i = 1; i < tableObj.rows.length; i++) {    //遍历Table的所有Row
+                var rowInfo = "";
+                for (var j = 0; j < tableObj.rows[i].cells.length; j++) {   //遍历Row中的每一列
+                    if(j > 4 && j< 13) {
+                        rowInfo += tableObj.rows[i].cells[j].getElementsByTagName("input")[0].value + ",";
+                    }
+                    else
+                        rowInfo += tableObj.rows[i].cells[j].innerText +",";   //获取Table中单元格的内容
+                }
+                editData.push(rowInfo)
+            }
+            $.ajax({
+                url: "/edit6PPDCost2Data",
+                type: 'post',
+                data: {editData:editData},
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+
+        $('#6ppdCost1Table').DataTable({
+            order : [],
+            columns : [
+                {data: 'factoryNo'},
+                {data: 'factoryName'},
+                {data: 'productionType'},
+                {data: 'unitCost'},
+                {data: 'date'},
+                {data: 'MIBK'}, //5
+                {data: 'activatorGC1801'},
+                {data: 'activatorCB5'},
+                {data: 'activatorCB10'},
+                {data: 'activatorTanBo'},
+                {data: 'h2_fbs'},
+                {data: 'youlu'},
+                {data: 'zhengqi'},
+                {data: 'zilaishui'},
+                {data: '4_adpa_wg'},
+                {data: '4_adpa'}, //15
+                {data: 'chejiandian'},
+                {data: 'fentandian'},
+                {data: 'bbm-rg'},
+                {data: 'bbm-qt'},
+                {data: 'bbm-zj'},
+                {data: 'bbm-bzf'},
+                {data: 'bbm-wx'},
+                {data: 'jjbm-rg'},
+                {data: 'jjbm-qt'},
+                {data: 'jjbm-zj'},
+                {data: 'jjbm-bzf'},
+                {data: 'jjbm-wx'}
+            ],
+            ajax : {
+                type: "get",
+                url: "/get6ppdCost2TableData",
+                dataSrc:  function(redata){
+                    var i=0;
+                    var j = 0;
+                    while (i!=redata.length)
+                    {
+                        redata[i]["MIBK"] = '<input type="number" class="tdwidth" value="'+redata[i]['MIBK']+'"/>';
+                        redata[i]["activatorGC1801"] = '<input type="number" class="tdwidth" value="'+redata[i]['activatorGC1801']+'"/>';
+                        redata[i]["activatorCB5"] = '<input type="number" class="tdwidth" value="'+redata[i]['activatorCB5']+'"/>';
+                        redata[i]["activatorCB10"] = '<input type="number" class="tdwidth" value="'+redata[i]['activatorCB10']+'"/>';
+                        redata[i]["activatorTanBo"] = '<input type="number" class="tdwidth" value="'+redata[i]['activatorTanBo']+'"/>';
+                        redata[i]["h2_fbs"] = '<input type="number" class="tdwidth" value="'+redata[i]['h2_fbs']+'"/>';
+                        redata[i]["youlu"] = '<input type="number" class="tdwidth" value="'+redata[i]['youlu']+'"/>';
+                        redata[i]["zhengqi"] = '<input type="number" class="tdwidth" value="'+redata[i]['zhengqi']+'"/>';
+                        redata[i]["zilaishui"] = '<input type="number" class="tdwidth" value="'+redata[i]['zilaishui']+'"/>';
+                        redata[i]["4_adpa_wg"] = '<input type="number" class="tdwidth" value="'+redata[i]['4_adpa_wg']+'"/>';
+                        redata[i]["4_adpa"] = '<input type="number" class="tdwidth" value="'+redata[i]['4_adpa']+'"/>';
+                        i++;
+                    }
+                    return redata;
+                }
+            },
+            columnDefs: [{
+                targets: [5,6,7,8,9,10,11,12,13,14,15], //要合并的列数（第1，2列）
+                createdCell: function (td, cellData, rowData, row, col) { //重要的操作可以合并列的代码
+                    $(td).css('background', '#d9e6ff');
+                }
+            }],
+            bLengthChange: false,
+            lengthMenu: [ 25, 50, 100 ],
+            language: {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            }
+        });
+        $('#6ppdCost1Table').DataTable();
+    } );
+
+</script>
+</body>
+
+</html>
